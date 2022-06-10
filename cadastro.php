@@ -1,10 +1,9 @@
 <?php
 namespace Alura;
+use App\Alura\Usuario;
+use App\Alura\Contato;
 
-use Alura\Usuario;
-
-require 'Usuario.php';
-require 'Contato.php';
+require 'autoload.php';
 
 $usuario = new Usuario($_POST['nome']);
 
