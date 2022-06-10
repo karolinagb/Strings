@@ -37,7 +37,7 @@ spl_autoload_register(function($classe)
     //projeto/src/Alura/NomeClasse.php
     $arquivo = $diretorio . $namespaceArquivo . '.php';
 
-    
-
-    var_dump($arquivo);
+    if(file_exists($arquivo)){
+        require $arquivo;
+    }
 });
