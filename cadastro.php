@@ -1,3 +1,14 @@
+<?php
+namespace Alura;
+
+use Alura\Usuario;
+
+require 'Usuario.php';
+
+$usuario = new Usuario($_POST['nome']);
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -8,28 +19,18 @@
     <title>Curso Strings</title>
 </head>
 <body>
-
-<?php
-//Para acesar os valores que estão vindo do formulário
-//$_POST['nome']
-
-//função explode - argumentos = delimitador (quebra em espaços no nosso caso), valor, máximo que pode quebrar
-//explode() vai retornar um array contendo strings
-$nomeSobrenome = explode(" ", $_POST['nome'], 2);
-?>
-
-<div class="mx-5 my-5">
-<h1>Cadastro feito com sucesso.</h1>
-<p>Seguem os dados de sua conta:</p>
-<ul class="list-group">
-    <li class="list-group-item">Primeiro nome: <?php echo $nomeSobrenome[0];?> </li>
-    <li class="list-group-item">Sobrenome: <?php echo $nomeSobrenome[1]; ?></li>
-    <li class="list-group-item">Usuário: </li>
-    <li class="list-group-item">Senha: </li>
-    <li class="list-group-item">Telefone: </li>
-    <li class="list-group-item">Email: </li>
-    <li class="list-group-item">Endereço: </li>
-</ul>
-</div>
+    <div class="mx-5 my-5">
+    <h1>Cadastro feito com sucesso.</h1>
+    <p>Seguem os dados de sua conta:</p>
+    <ul class="list-group">
+        <li class="list-group-item">Primeiro nome: <?php echo $usuario->getNome();?> </li>
+        <li class="list-group-item">Sobrenome: <?php echo $usuario->getSobrenome(); ?></li>
+        <li class="list-group-item">Usuário: </li>
+        <li class="list-group-item">Senha: </li>
+        <li class="list-group-item">Telefone: </li>
+        <li class="list-group-item">Email: </li>
+        <li class="list-group-item">Endereço: </li>
+    </ul>
+    </div>
 </body>
 </html>
