@@ -4,8 +4,11 @@ namespace Alura;
 use Alura\Usuario;
 
 require 'Usuario.php';
+require 'Contato.php';
 
 $usuario = new Usuario($_POST['nome']);
+
+$contato = new Contato($_POST['email']);
 
 ?>
 
@@ -25,7 +28,7 @@ $usuario = new Usuario($_POST['nome']);
     <ul class="list-group">
         <li class="list-group-item">Primeiro nome: <?php echo $usuario->getNome();?> </li>
         <li class="list-group-item">Sobrenome: <?php echo $usuario->getSobrenome(); ?></li>
-        <li class="list-group-item">Usuário: </li>
+        <li class="list-group-item">Usuário: <?php echo $contato->getUsuario(); ?> </li>
         <li class="list-group-item">Senha: </li>
         <li class="list-group-item">Telefone: </li>
         <li class="list-group-item">Email: </li>
