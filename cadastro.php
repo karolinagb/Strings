@@ -9,6 +9,8 @@ $usuario = new Usuario($_POST['nome']);
 
 $contato = new Contato($_POST['email']);
 
+
+
 ?>
 
 <!DOCTYPE html>
@@ -30,7 +32,7 @@ $contato = new Contato($_POST['email']);
         <li class="list-group-item">Usuário: <?php echo $contato->getUsuario(); ?> </li>
         <li class="list-group-item">Senha: </li>
         <li class="list-group-item">Telefone: </li>
-        <li class="list-group-item">Email: </li>
+        <li class="list-group-item">Email: <?php echo $contato->getEmail(); ?> </li>
         <li class="list-group-item">Endereço: </li>
     </ul>
     </div>

@@ -7,7 +7,7 @@ class Usuario
     private $nome;
     private $sobrenome;
 
-    public function __construct(string $nome)
+    public function __construct(string $nome = null)
     {
         //Para acesar os valores que estão vindo do formulário
         //$_POST['nome']
