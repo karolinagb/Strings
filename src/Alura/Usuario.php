@@ -6,8 +6,9 @@ class Usuario
 {
     private $nome;
     private $sobrenome;
+    private $senha;
 
-    public function __construct(string $nome = null)
+    public function __construct(string $nome = null, string $senha = null)
     {
         //Para acesar os valores que estão vindo do formulário
         //$_POST['nome']
@@ -30,6 +31,7 @@ class Usuario
             $this->sobrenome = $nomeSobrenome[1];
         }
 
+        $this->validaSenha($senha);
     }
 
     public function getNome(): string
@@ -39,5 +41,22 @@ class Usuario
 
     public function getSobrenome(): string{
         return $this->sobrenome;
+    }
+
+    public function getSenha() : string{
+        return $this->senha;
+    }
+
+    private function validaSenha(string $senha) : void{
+
+        //retorna o tamanho da string
+        $tamanhoSenha = strlen($senha);
+
+        if($tamanhoSenha > 6){
+            $this->senha = $senha;
+        }
+        else{
+            $this->senha = "Senha inválida";
+        }
     }
 }
