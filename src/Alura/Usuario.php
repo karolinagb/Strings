@@ -7,8 +7,9 @@ class Usuario
     private $nome;
     private $sobrenome;
     private $senha;
+    private $tratamento;
 
-    public function __construct(string $nome = null, string $senha = null)
+    public function __construct(string $nome = null, string $senha = null, string $genero = null)
     {
         //Para acesar os valores que estão vindo do formulário
         //$_POST['nome']
@@ -32,6 +33,24 @@ class Usuario
         }
 
         $this->validaSenha($senha);
+
+        $this->adicionaTratamentoAoSobrenome($nome, $genero);
+    }
+
+    private function adicionaTratamentoAoSobrenome(string $nome, string $genero)  {
+
+        if($genero == 'M'){
+            //Encontra através de expressão regular um texto e substituir ele por outro
+            // parametros - expressao a ser encontrada, o que sera substituido, em quem e limite de palavras a serem substituidas
+            // \w = pega caracteres minusculos e maiusculos
+            // \b = até o final de uma palavra
+            $this->tratamento = preg_replace('/^(\w+)\b/', 'Sr.', $nome, 1);
+        }
+
+        
+        if($genero == 'F'){
+            $this->tratamento = preg_replace('/^(\w+)\b/', 'Sra.', $nome, 1);
+        }
     }
 
     public function getNome(): string
@@ -64,5 +83,7 @@ class Usuario
         }
     }
 
-    //expressao regular = sequência de caracteres que define um padrão a ser buscado numa string
+    public function getTratamento() : string{
+        return $this->tratamento;
+    }
 }
