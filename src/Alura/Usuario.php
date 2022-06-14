@@ -49,8 +49,12 @@ class Usuario
 
     private function validaSenha(string $senha) : void{
 
+        //trim() - Retira espaço no inicio ou no final de uma string
+        //Tira também alguns caracteres a mais como de tab
+
         //retorna o tamanho da string
-        $tamanhoSenha = strlen($senha);
+        $tamanhoSenha = strlen(trim($senha));
+
 
         if($tamanhoSenha > 6){
             $this->senha = $senha;
