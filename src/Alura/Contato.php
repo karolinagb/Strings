@@ -5,8 +5,10 @@ namespace App\Alura;
 class Contato
 {
     private $email;
+    private $endereco;
+    private $cep;
 
-    public function __construct(string $email = null)
+    public function __construct(string $email = null, string $endereco = null, string $cep = null)
     {
         if($this->ValidaEmail($email) !== false){
             $this->setEmail($email);
@@ -14,6 +16,9 @@ class Contato
         else{
             $this->setEmail("Email inválido.");
         }
+
+        $this->endereco = $endereco;
+        $this->cep = $cep;
     }
 
     public function setEmail(string $email) : void{
@@ -41,5 +46,11 @@ class Contato
 
     public function getEmail(): string{
         return $this->email;
+    }
+
+    public function getEnderecoCep() : string{
+        //junta duas strings
+        //parametros - string $glue (cola), array do que vai ser juntado
+        return implode(" - ", [$this->endereco, $this->cep]);
     }
 }
