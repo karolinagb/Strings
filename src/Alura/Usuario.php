@@ -63,4 +63,6 @@ class Usuario
             $this->senha = "Senha inválida";
         }
     }
+
+    //expressao regular = sequência de caracteres que define um padrão a ser buscado numa string
 }
