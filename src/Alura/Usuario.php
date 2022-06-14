@@ -41,7 +41,8 @@ class Usuario
 
         if($genero == 'M'){
             //Encontra através de expressão regular um texto e substituir ele por outro
-            // parametros - expressao a ser encontrada, o que sera substituido, em quem e limite de palavras a serem substituidas
+            // parametros - expressao a ser encontrada, o que sera substituido, em quem e a substituiçao e limite de palavras a serem 
+            //substituidas
             // \w = pega caracteres minusculos e maiusculos
             // \b = até o final de uma palavra
             $this->tratamento = preg_replace('/^(\w+)\b/', 'Sr.', $nome, 1);
